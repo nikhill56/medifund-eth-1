@@ -54,7 +54,7 @@ export const getFundraisers = () => async (dispatch) => {
 }
 
 export const donateFundraiser = (address, amount, contract, userId, mid, cid) => async (dispatch) => {
-	
+	console.log(userId)
 	const newAmount = web3_utils.toWei(amount, "ether")
 
 	await contract.methods.contibute().send({
@@ -82,7 +82,10 @@ export const donateFundraiser = (address, amount, contract, userId, mid, cid) =>
 
 
 				})
-				.catch(err => toast.error("Something went wrong !"))
+				.catch(err => {
+					toast.error("Something went wrong !")
+					console.log(err)
+				})
 		})
 		.catch(err => {
 			toast.error("Something went wrong !")

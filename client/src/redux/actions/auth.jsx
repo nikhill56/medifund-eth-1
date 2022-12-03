@@ -79,7 +79,7 @@ export const getProfile = (userId, navigate) => async (dispatch) => {
           type: GET_PROFILE,
           payload: res,
         });
-        navigate("/signIn");
+        navigate("/signin");
       } else {
         toast.error("Please Try Again");
         console.log(res);
@@ -114,29 +114,29 @@ export const getAllUsers = () => async (dispatch) => {
     });
 };
 
-export const sendSpendNotification = (userId) => async (dispatch) => {
-  toast("Please Wait for a few seconds");
-  const url =
-    process.env.REACT_APP_SERVER + "/user/sendSpendNotifications/" + userId;
-  await axios
-    .put(url)
-    .then((res) => {
-      if (res.status === 200) {
-        console.log(res);
-        dispatch({
-          type: SEND_SPENDING_NOTIFICATION,
-          payload: res,
-        });
-      } else {
-        toast.error("Please Try Again");
-        console.log(res);
-      }
-    })
-    .catch((err) => {
-      toast.error("Please try Again!");
-      console.log(err);
-    });
-};
+// export const sendSpendNotification = (userId) => async (dispatch) => {
+//   toast("Please Wait for a few seconds");
+//   const url =
+//     process.env.REACT_APP_SERVER + "/user/sendSpendNotifications/" + userId;
+//   await axios
+//     .put(url)
+//     .then((res) => {
+//       if (res.status === 200) {
+//         console.log(res);
+//         dispatch({
+//           type: SEND_SPENDING_NOTIFICATION,
+//           payload: res,
+//         });
+//       } else {
+//         toast.error("Please Try Again");
+//         console.log(res);
+//       }
+//     })
+//     .catch((err) => {
+//       toast.error("Please try Again!");
+//       console.log(err);
+//     });
+// };
 
 export const userSignOut = (navigate) => async (dispatch) => {
     toast.success("Successfully signed out !");
