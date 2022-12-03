@@ -173,7 +173,7 @@ export default function SignUp() {
                 </Button>
                 <Typography variant="body1" align="center">
                   Already have an account?{" "}
-                  <a href="/#/signin" className="navigatingLink">
+                  <a href='/signin' className='navigatingLink'>
                     Sign in
                   </a>
                 </Typography>
