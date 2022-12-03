@@ -137,3 +137,9 @@ export const sendSpendNotification = (userId) => async (dispatch) => {
       console.log(err);
     });
 };
+
+export const userSignOut = (navigate) => async (dispatch) => {
+    toast.success("Successfully signed out !");
+    sessionStorage.setItem("userId", "");
+    navigate("/signin");
+  };
