@@ -18,22 +18,28 @@ export const authReducer = (state = initState, action) => {
   switch (action.type) {
     case USER_SIGNIN: {
       if (action.payload !== undefined) return { ...state, ...action.payload };
+      break;
     }
     case USER_SIGNUP: {
       if (action.payload !== undefined) return { ...state, ...action.payload };
       return Object.assign({}, state, {
         ...action.payload,
       });
+      break;
     }
     case GET_PROFILE: {
       if (action.payload !== undefined) return { ...state, ...action.payload };
+      break;
     }
     case GET_ALL_USERS: {
-      if (action.payload !== undefined) return { users: action.payload.users };
+      if (action.payload !== undefined)
+        return { ...state, users: action.payload.users };
+      break;
     }
     case SEND_SPENDING_NOTIFICATION: {
       if (action.payload !== undefined)
         return { ...state, notification: action.payload };
+      break;
     }
     default:
       return state;
