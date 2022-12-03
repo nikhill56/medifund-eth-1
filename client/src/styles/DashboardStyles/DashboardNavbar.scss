@@ -7,7 +7,7 @@ $openSans: "Open Sans", sans-serif;
 
 .dashboardNavbar{
     box-shadow: none !important;
-    background: #6C97A9 !important;
+    background: white !important;
     padding: 10px 80px !important;
     
 }
@@ -15,14 +15,14 @@ $openSans: "Open Sans", sans-serif;
     flex:1 !important;
 }
 .dashboardNavbarLogo{
-    // height:50px;
-    // width:200px;
+    height:76px;
+    width:fit-content !important;
 }
 .dashboardNavbarItems{
     text-transform: capitalize !important;
     font-family: $poppins !important;
     font-weight: 600 !important;
-    color:white !important;
+    color:#49A878 !important;
     margin-right: 20px !important;
   
 }
@@ -45,18 +45,18 @@ $openSans: "Open Sans", sans-serif;
     display: none !important;
 }
 .dashboardNavbarMenuIcon{
-    color: white !important;
+    color: #49A878 !important;
 }
 .css-hyum1k-MuiToolbar-root{
     padding: 0px !important;
 }
 .dashboardNavbarChip{
     margin-right: 20px !important;
-    color: white !important;
+    color: #49A878 !important;
     background-color: transparent !important;
     font-family: $poppins !important;
     font-weight: 600 !important;
-    border: 2px solid white !important;
+    border: 2px solid #49A878 !important;
     padding: 15px 5px !important;
     font-size: 14px !important;
     text-transform: capitalize  !important;
@@ -68,9 +68,9 @@ $openSans: "Open Sans", sans-serif;
     font-family: $poppins !important;
     font-weight: 600 !important;
     font-size: 14px !important;
-    color:#6C97A9 !important;
-    border: 2px solid #6C97A9 !important;
-    background-color: #ffffff !important;
+    color:white !important;
+    border: 2px solid white !important;
+    background-color: #49A878 !important;
     border-radius: 30px !important;
     margin-left: 20px !important;
     padding: 5px 25px !important;
@@ -85,7 +85,7 @@ $openSans: "Open Sans", sans-serif;
     padding-right: 0px !important;
 }
 .dashboardNavbarNotification{
-    color: white !important;
+    color: #49A878 !important;
 }
 @media only screen and (max-width: 768px) {
     .dashboardNavbarLarge{

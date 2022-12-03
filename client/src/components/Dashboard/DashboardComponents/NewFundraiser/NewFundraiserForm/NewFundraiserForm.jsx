@@ -54,7 +54,7 @@ function NewFundraiserForm() {
                 const fundThumbnailUrl=`https://cryptobuteportal.infura-ipfs.io/ipfs/${fundThumbnail.path}`
                 for(let i=0;i<uploadedFiles.length;i++){
                     let upFile=await client.add(uploadedFiles[i])
-                    let upFilesUrl=`https://cryptobuteportal.infura-ipfs.io/ipfs/${upFile.path}`
+                    let upFilesUrl=`https://medifund.infura-ipfs.io/ipfs/${upFile.path}`
                     upFiles.push(upFilesUrl)
                 }
              

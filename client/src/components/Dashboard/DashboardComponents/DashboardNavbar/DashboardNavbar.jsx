@@ -6,10 +6,10 @@ import merlin from '../../../../assets/logos/Merlin.jpeg'
 import { useWeb3Modal } from '@web3modal/react'
 import {useAccount,useDisconnect} from 'wagmi'
  
-// import {useNavigate} from 'react-router-dom'
-// import {useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
 import { useLocation } from 'react-router-dom'
-// import {userSignOut} from '../../../../redux/action/auth'
+import {userSignOut} from '../../../../redux/actions/auth'
 // import profileDefault from '../../../../assets/landing/tipogram-logo-2.png'
 
 
@@ -17,12 +17,12 @@ import DashboardDrawer from './DashboardDrawer'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 function DashboardNavbar() {
   const location = useLocation()
-  // const dispatch = useDispatch();
-  // const navigate=useNavigate()
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
 
-  // const handleUserSignOut=()=>{
-  //     dispatch(userSignOut(navigate));
-  // }
+  const handleUserSignOut=()=>{
+      dispatch(userSignOut(navigate));
+  }
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { open } = useWeb3Modal()
@@ -56,16 +56,16 @@ function DashboardNavbar() {
                     <div className="dashboardNavbarLarge">
 
                       {
-                        location.pathname !== '/' && (
-                          <a href='/' className='navigatingLink'><Button size="large" className="dashboardNavbarItems">
+                        location.pathname !== '/dashboard' && (
+                          <a href='/dashboard' className='navigatingLink'><Button size="large" className="dashboardNavbarItems">
                             Dashboard
                           </Button></a>
                         )
                       }
-                      <a href='/newFundraiser' className='navigatingLink'><Button size="large" className={`dashboardNavbarItems ${location.pathname === '/newFundraiser' && "dashboardNavbarItemsActive"}`}>
+                      <a href='/dashboard/newFundraiser' className='navigatingLink'><Button size="large" className={`dashboardNavbarItems ${location.pathname === '/newFundraiser' && "dashboardNavbarItemsActive"}`}>
                         New Fundraiser
                       </Button></a>
-                      <a href='/myFundraisers' className='navigatingLink'><Button size="large" className={`dashboardNavbarItems ${location.pathname === '/myFundraisers' && "dashboardNavbarItemsActive"}`}>
+                      <a href='/dashboard/myFundraisers' className='navigatingLink'><Button size="large" className={`dashboardNavbarItems ${location.pathname === '/myFundraisers' && "dashboardNavbarItemsActive"}`}>
                         My Fundraisers
                       </Button></a>
                       <a className='navigatingLink' href='/'><Chip
@@ -74,7 +74,7 @@ function DashboardNavbar() {
                         variant="outlined"
                         className="dashboardNavbarChip"
                       /></a>
-                      <a className='navigatingLink' href='/notifications'>
+                      <a className='navigatingLink' href='/dashboard/notifications'>
                         <Badge badgeContent={1} color="error">
                           <NotificationsIcon color="action" className='dashboardNavbarNotification' />
                         </Badge>
@@ -82,7 +82,7 @@ function DashboardNavbar() {
                       <Button onClick={connectHandler} size="large" className="dashboardNavbarItemsButton">
                         {isConnected ? "disconnect" : "connect wallet"}
                       </Button>
-                      <a href='/signIn' className='navigatingLink'><Button size="large" className="dashboardNavbarItemsButton">
+                      <a href='/signin' className='navigatingLink' onClick={handleUserSignOut}><Button size="large" className="dashboardNavbarItemsButton">
                         Sign out
                       </Button></a>
 
