@@ -16,6 +16,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { create } from "ipfs-http-client";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../Landing/Navbar";
 import { AuthenticationNavbar } from "../index";
 import { userSignUpStatus } from "../../../redux/actions/auth";
 
@@ -100,74 +101,79 @@ export default function SignUp() {
   };
   return (
     <>
-      <div className='signUpParentContainer'>
-        <div className='signUpNavContainer'>
-          <AuthenticationNavbar />
-        </div>
-        <Grid container className='signUpContainer'>
+      <Navbar />
+      <div className="signUpParentContainer">
+        <div className="signUpNavContainer"></div>
+        <Grid container className="signUpContainer">
           <Grid item xs={12} sm={2} md={2} lg={3} xl={4}></Grid>
-          <Grid item xs={12} sm={8} md={8} lg={6} xl={4} className='signUpBox'>
-            <form autoComplete='off'>
-              <Stack className='signUpFormBox' spacing={2}>
-                <Typography variant='h6' className='signUpTitle' align='center'>
+          <Grid item xs={12} sm={8} md={8} lg={6} xl={4} className="signUpBox">
+            <form autoComplete="off">
+              <Stack className="signUpFormBox" spacing={2}>
+                <Typography variant="h6" className="signUpTitle" align="center">
                   Sign up with your email
                 </Typography>
 
                 <TextField
-                  label='Email address'
-                  type='email'
-                  className='signUpInput'
-                  name='email'
+                  label="Email address"
+                  type="email"
+                  className="signUpInput"
+                  name="email"
                   value={user.email}
                   onChange={handleInputChange}
                 />
                 <TextField
-                  label='Password'
-                  type='password'
-                  name='password'
-                  className='signUpInput'
+                  label="Password"
+                  type="password"
+                  name="password"
+                  className="signUpInput"
                   value={user.password}
                   onChange={handleInputChange}
                 />
                 <TextField
-                  label='Confirm Password'
-                  type='password'
-                  name='confirmPassword'
-                  className='signUpInput'
+                  label="Confirm Password"
+                  type="password"
+                  name="confirmPassword"
+                  className="signUpInput"
                   value={user.confirmPassword}
                   onChange={handleInputChange}
                 />
-                <section className='signUpUpload'>
-                  <FormLabel id='demo-row-radio-buttons-group-label signUpFileLabel'>
+                <section className="signUpUpload">
+                  <FormLabel id="demo-row-radio-buttons-group-label signUpFileLabel">
                     Upload your Profile Image
                   </FormLabel>
                   <br />
                   <input
-                    type='file'
-                    accept='image/*'
+                    type="file"
+                    accept="image/*"
                     onChange={(e) => setProfileImage(e.target.files[0])}
                   />
                 </section>
-                <Stack direction='row' alignItems='center'>
+                <Stack direction="row" alignItems="center">
                   <Checkbox
                     checked={agree}
                     onChange={(e) => setAgree(!agree)}
+                    sx={{
+                      color: "#49A878",
+                      "&.Mui-checked": {
+                        color:"#49A878",
+                      },
+                    }}
                   />
-                  <Typography variant='body1'>
+                  <Typography variant="body1">
                     I agree to the Terms of Service and Privacy Policy
                   </Typography>
                 </Stack>
                 <Button
                   onClick={handleSignUpSubmit}
-                  variant='contained'
-                  color='primary'
-                  className='signUpSubmitBtn'
+                  variant="contained"
+                  color="primary"
+                  className="signUpSubmitBtn"
                 >
                   Sign Up
                 </Button>
-                <Typography variant='body1' align='center'>
+                <Typography variant="body1" align="center">
                   Already have an account?{" "}
-                  <a href='/#/signin' className='navigatingLink'>
+                  <a href="/#/signin" className="navigatingLink">
                     Sign in
                   </a>
                 </Typography>
@@ -176,7 +182,7 @@ export default function SignUp() {
           </Grid>
           <Grid item xs={12} sm={2} md={2} lg={3} xl={4}></Grid>
         </Grid>
-        <Toaster position='top-center' reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </>
   );

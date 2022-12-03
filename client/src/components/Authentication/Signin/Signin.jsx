@@ -6,7 +6,7 @@ import { userSignInStatus } from "../../../redux/actions/auth";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 // import { userSignIn } from "../../../redux/action/auth";
-import { AuthenticationNavbar } from "..";
+import Navbar from "../../Landing/Navbar"
 export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,9 +37,10 @@ export default function SignIn() {
   };
   return (
     <>
+    <Navbar />
       <div className='signInParentContainer'>
         <div className='signInNavContainer'>
-          <AuthenticationNavbar />
+          
         </div>
         <Grid container className='signInContainer'>
           <Grid item xs={12} sm={2} md={2} lg={3} xl={4}></Grid>
