@@ -39,7 +39,7 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
     .post(url, userData)
     .then((res) => {
       if (res.status === 200) {
-        toast.success("Successfully logged in");
+        toast.success("Successfully created Account");
         dispatch({
           type: USER_SIGNUP,
           payload: userData,
