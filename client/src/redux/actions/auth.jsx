@@ -16,6 +16,7 @@ export const userSignInStatus = (userData, navigate) => async (dispatch) => {
     .then((res) => {
       if (res.status === 200) {
         toast.success("Successfully logged in");
+        sessionStorage.setItem("userId", res.data.user._id);
         dispatch({
           type: USER_SIGNIN,
           payload: userData,
@@ -40,6 +41,7 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
     .then((res) => {
       if (res.status === 200) {
         toast.success("Successfully created Account");
+        sessionStorage.setItem("userId", res.data.user._id);
         dispatch({
           type: USER_SIGNUP,
           payload: userData,
