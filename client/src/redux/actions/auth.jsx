@@ -63,7 +63,6 @@ export const getProfile = (userId, navigate) => async (dispatch) => {
     .post(url, userId)
     .then((res) => {
       if (res.status === 200) {
-        toast.success("Your password is reset.");
         console.log(res);
         dispatch({
           type: GET_PROFILE,
@@ -112,7 +111,6 @@ export const sendSpendNotification = (userId) => async (dispatch) => {
     .put(url)
     .then((res) => {
       if (res.status === 200) {
-        toast.success("Your password is reset.");
         console.log(res);
         dispatch({
           type: SEND_SPENDING_NOTIFICATION,
