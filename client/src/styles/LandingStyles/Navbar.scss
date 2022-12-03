@@ -1,0 +1,92 @@
+/* $nunito: "Nunito", sans-serif;
+$inter: "Inter", sans-serif;
+"Poppins", sans-serif: "Poppins", sans-serif;
+$roboto: "Roboto", sans-serif;
+$openSans: "Open Sans", sans-serif; */
+:root{
+    --font-fam:"Poppins",sans-serif;
+}
+.landingNavbar{
+    box-shadow: none !important;
+    background:#fff !important;
+    padding: 10px 80px !important;
+    
+}
+.landingNavbarLogo{
+    height: 4.5rem !important;
+}
+.landingNavbarLogoBox{
+    flex:1 !important;
+}
+/* // .landingNavbarLogo{
+    // height:50px;
+    // width:200px;
+// } */
+.landingNavbarItems{
+    text-transform: capitalize !important;
+    font-family: var(--font-fam) !important;
+    font-weight: 600 !important;
+    color:#49A878 !important;
+    border: 2px solid #49A878 !important;
+    background-color: #ffffff !important;
+    border-radius: 30px !important;
+    margin-left: 30px !important;
+    padding: 9px 25px !important;
+    
+    
+}
+.whyCryptoTextContent{
+    font-weight: 600 !important;
+}
+.landingNavbarFAQs{
+    text-transform: capitalize !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600 !important;
+    color:#49A878 !important;
+    font-size: 15px !important;
+    margin-left: 20px !important;
+}
+.landingNavbarUsecase{
+    text-transform: capitalize !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600 !important;
+    color:#ffffff !important;
+    font-size: 15px !important;
+}
+.landingNavbarItems:hover{
+  color: white !important;
+   border: 2px solid #49A878 !important; 
+   background-color: #49A878 !important;
+}
+.landingSmallNavbarItems{
+    text-transform: capitalize !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600 !important;
+    color:#49A878 !important;
+}
+a{
+    text-decoration: none !important;
+}
+.landingNavbarSmall{
+    display: none !important;
+}
+.landingNavbarMenuIcon{
+    color: #49A878 !important;
+}
+.css-hyum1k-MuiToolbar-root{
+    padding: 0px !important;
+}
+@media only screen and (max-width: 768px) {
+    .landingNavbarLarge{
+        display: none !important;
+    }
+    .landingNavbarSmall{
+        display: flex !important;
+    }
+   }
+@media only screen and (max-width: 992px) {
+    .landingNavbar{
+        padding: 15px 20px !important;
+    }
+  }
+  
