@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../../styles/AuthenticationStyles/SignIn.scss";
 import { Grid, Typography, Button, Stack, TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
+import { userSignInStatus } from "../../../redux/actions/auth";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 // import { userSignIn } from "../../../redux/action/auth";
@@ -31,7 +32,7 @@ export default function SignIn() {
         email: user.email,
         password: user.password,
       };
-      // dispatch(userSignIn(data, navigate));
+      dispatch(userSignInStatus(data, navigate));
     }
   };
   return (

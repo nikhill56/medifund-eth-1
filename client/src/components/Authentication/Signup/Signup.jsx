@@ -17,17 +17,16 @@ import { create } from "ipfs-http-client";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationNavbar } from "../index";
+import { userSignUpStatus } from "../../../redux/actions/auth";
 
 export default function SignUp() {
   const [agree, setAgree] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
-    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
-    gender: "",
   });
 
   const projectId = "2DHzCBxzg2oEnows9uCK5IWbcDw";
@@ -59,11 +58,9 @@ export default function SignUp() {
     e.preventDefault();
 
     if (
-      user.userName === "" ||
       user.email === "" ||
       user.password === "" ||
       user.confirmPassword === "" ||
-      user.gender === "" ||
       user.profileImage === "" ||
       agree === false
     ) {
@@ -85,20 +82,17 @@ export default function SignUp() {
     } else {
       try {
         const profile = await client.add(profileImage);
-        const proUrl = `https://tipogram.infura-ipfs.io/ipfs/${profile.path}`;
+        const proUrl = `https://medifund.infura-ipfs.io/ipfs/${profile.path}`;
 
         const data = {
-          userName: user.userName,
           email: user.email,
           password: user.password,
-          gender: user.gender,
-          profileImage: proUrl,
-          likeCount: 0,
-          tipsReceived: 0,
-          badges: [],
-          likedPosts: [],
-          imagesPosted: [],
+          profileImg: proUrl,
+          fundsReceived: [],
+          fundsDonated: [],
+          notification: [],
         };
+        dispatch(userSignUpStatus(data, navigate));
       } catch (error) {
         toast.error("Something went wrong !");
       }
@@ -118,14 +112,6 @@ export default function SignUp() {
                 <Typography variant='h6' className='signUpTitle' align='center'>
                   Sign up with your email
                 </Typography>
-                <TextField
-                  label='Username'
-                  type='text'
-                  className='signUpInput'
-                  name='userName'
-                  value={user.userName}
-                  onChange={handleInputChange}
-                />
 
                 <TextField
                   label='Email address'
@@ -151,29 +137,6 @@ export default function SignUp() {
                   value={user.confirmPassword}
                   onChange={handleInputChange}
                 />
-                <FormLabel id='demo-row-radio-buttons-group-label'>
-                  Gender
-                </FormLabel>
-                <RadioGroup row name='gender'>
-                  <FormControlLabel
-                    value='female'
-                    control={<Radio />}
-                    label='Female'
-                    onChange={handleInputChange}
-                  />
-                  <FormControlLabel
-                    value='male'
-                    control={<Radio />}
-                    label='Male'
-                    onChange={handleInputChange}
-                  />
-                  <FormControlLabel
-                    value='other'
-                    control={<Radio />}
-                    label='Other'
-                    onChange={handleInputChange}
-                  />
-                </RadioGroup>
                 <section className='signUpUpload'>
                   <FormLabel id='demo-row-radio-buttons-group-label signUpFileLabel'>
                     Upload your Profile Image
