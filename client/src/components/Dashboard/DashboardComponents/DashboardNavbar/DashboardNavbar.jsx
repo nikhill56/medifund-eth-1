@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../../styles/DashboardStyles/DashboardNavbar.scss'
 import { Grid, AppBar, Button, Toolbar, Avatar, Chip, useTheme, useMediaQuery, Badge } from '@mui/material'
-import logo from '../../../../assets/logos/cbutelogo.png'
+import logo from '../../../../assets/logos/medifundsmall.png'
 import merlin from '../../../../assets/logos/Merlin.jpeg'
 import { useWeb3Modal } from '@web3modal/react'
 import {useAccount,useDisconnect} from 'wagmi'
