@@ -22,20 +22,29 @@ export const userSignInStatus = (userData, navigate) => async (dispatch) => {
           payload: userData,
         });
         navigate("/dashboard");
+      } else if (res.status === 400) {
+        console.log(res);
+        toast.error("Incorrect Password");
       } else {
         toast.error("Please try Again!");
         console.log(res);
       }
     })
     .catch((err) => {
-      toast.error("Please try Again!");
-      console.log(err);
+      if (err.response && err.response.status === 400) {
+        console.log(err);
+        toast.error("Incorrect Password");
+      } else {
+        toast.error("Please try Again!");
+        console.log(err);
+      }
     });
 };
 
 export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
   toast("Please Wait for a few seconds");
   const url = process.env.REACT_APP_SERVER + "/user/signUp";
+  console.log(userData);
   await axios
     .post(url, userData)
     .then((res) => {
