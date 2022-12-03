@@ -81,7 +81,7 @@ export default function SignIn() {
               </Typography> */}
                 <Typography variant='body1' className='' align='center'>
                   Don't have an account?{" "}
-                  <a href='/#/signup' className='signInLink'>
+                  <a href='/signup' className='signInLink'>
                     Sign Up
                   </a>
                 </Typography>
