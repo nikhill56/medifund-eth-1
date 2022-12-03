@@ -9,7 +9,7 @@ $openSans: "Open Sans", sans-serif;
 .dashboardDrawerChip{
     margin-right: 10px !important;
     color: white !important;
-    background-color: #6C97A9 !important;
+    background-color: #49A878 !important;
     font-family: $poppins !important;
     font-weight: 500 !important;
     font-size: 15px !important;
@@ -21,7 +21,7 @@ $openSans: "Open Sans", sans-serif;
 .dashboardDrawerWallet{
     margin-right: 10px !important;
     color: white !important;
-    background-color: #6C97A9 !important;
+    background-color: #49A878 !important;
     font-family: $poppins !important;
     font-weight: 500 !important;
     font-size:15px !important;
@@ -32,7 +32,7 @@ $openSans: "Open Sans", sans-serif;
    
 }
 .extraBorder{
-    border-bottom: 2px solid white !important;
+    border-bottom: 2px solid #49A878 !important;
     margin-top: 20px !important;
 }
 
@@ -44,7 +44,7 @@ $openSans: "Open Sans", sans-serif;
     border: 2px solid #040C27 !important;
 }
 .dashboardDrawerListItem{
-    color: white !important;
+    color: #49A878 !important;
     font-family: $poppins !important;
     font-weight: 500 !important;
     font-size: 15px !important;
@@ -81,16 +81,12 @@ $openSans: "Open Sans", sans-serif;
 .dashboardDrawerNotificationBox{
     display: flex !important;
     align-items: center !important;
-     border-bottom: 2px solid white !important;
+     border-bottom: 2px solid #49A878 !important;
 
 }
 .dashboardDrawerNotification{
-    color: white !important;
+    color: #49A878 !important;
 }
 .dashboardDrawerNotificationBadge{
     margin-top: -23px !important;
 }
-// .dashboardDrawerLogoBox{
-//     display: flex !important;
-//     justify-content: center !important;
-// }

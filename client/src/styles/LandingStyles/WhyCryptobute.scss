@@ -1,0 +1,79 @@
+.whyCryptoButeContainer {
+  /* // padding: 30px 40px !important; */
+}
+.whyCryptoTextContent {
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 600;
+}
+.whyCryptoTextHeading {
+  font-weight: 600 !important;
+}
+.whyCryptoButeParentContainer {
+  font-family: "Poppins", sans-serif !important;
+}
+.whyCryptoContent{
+  font-weight: 400 !important;
+}
+.whyCryptoButeCardParentContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+  padding: 40px 20px;
+}
+.whyCryptoButeHeading {
+  font-family: "Ubuntu", sans-serif !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.whyCryptoButeSubHeading {
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 500 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.whyCryptoButeHeadingSpan {
+  color: #49a878 !important;
+}
+.whyCryptoButeCardContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 30px !important;
+}
+.whyCryptoButeCardContent {
+  border-radius: 30px !important;
+  background-color: #fff !important;
+  background: rgba(73, 168, 120, 0.2);
+  box-shadow: 0 8px 12px 0 #d8dede;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 40px !important;
+  text-align: center !important;
+  width: 70% !important;
+}
+.whyCryptoButeImageContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px;
+}
+.whyCryptoButeImage {
+  width: 200px !important;
+  height: 200px !important;
+}
+@media only screen and (max-width: 768px) {
+  .whyCryptoButeParentContainer {
+    /* // width: 500px !important; */
+  }
+  .whyCryptoButeCardContainer {
+    padding: 20px 20px !important;
+    width: 100% !important;
+  }
+  .whyCryptoButeCardContent {
+    /* // box-sizing: border-box !important; */
+  }
+}

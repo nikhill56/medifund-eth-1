@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu'
 import '../../../../styles/DashboardStyles/DashboardDrawer.scss'
-import logo from '../../../../assets/logos/cbutelogo.png'
+import logo from '../../../../assets/logos/medifundsmall.png'
 import merlin from '../../../../assets/logos/Merlin.jpeg'
 import { useWeb3Modal } from '@web3modal/react'
 import {useAccount,useDisconnect} from 'wagmi'
@@ -63,7 +63,7 @@ function DrawerComponent({ userData, ethBalance, metamaskAccount }) {
         onClose={() => setOpenDrawer(false)}
         PaperProps={{
           sx: {
-            backgroundColor: "#9D9D9D"
+            backgroundColor: "white"
           }
         }}
         sx={{
@@ -84,7 +84,7 @@ function DrawerComponent({ userData, ethBalance, metamaskAccount }) {
             </div>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)} className="dashboardDrawerListItemBox">
-            <a href='/notifications' className={`navigatingLink dashboardDrawerListItem`}>
+            <a href='/dashboard/notifications' className={`navigatingLink dashboardDrawerListItem`}>
             <Badge badgeContent={0} color="error" className='dashboardDrawerNotificationBadge'>
                           <NotificationsIcon color="action" className='dashboardDrawerNotification' />
                         </Badge>
@@ -93,7 +93,7 @@ function DrawerComponent({ userData, ethBalance, metamaskAccount }) {
           </div>
           <ListItem onClick={() => setOpenDrawer(false)} >
 
-            <a href="/myProfile" className="navigatingLink dashboardDrawerListProfile">
+            <a href="/dashboard/myProfile" className="navigatingLink dashboardDrawerListProfile">
               <Chip
                 avatar={<Avatar alt="Metamask" src={merlin} />}
                 label="Merlin"
@@ -111,19 +111,19 @@ function DrawerComponent({ userData, ethBalance, metamaskAccount }) {
           <div className="extraBorder"></div>
 
           {
-            location.pathname !== '/' && (
+            location.pathname !== '/dashboard' && (
               <ListItem onClick={() => setOpenDrawer(false)} className="dashboardDrawerListItemBox">
-                <a href='/' className='navigatingLink dashboardDrawerListItem'>Dashboard</a>
+                <a href='/dashboard' className='navigatingLink dashboardDrawerListItem'>Dashboard</a>
               </ListItem>
             )
           }
           
 
           <ListItem onClick={() => setOpenDrawer(false)} className="dashboardDrawerListItemBox">
-            <a href='/newFundraiser' className={`navigatingLink dashboardDrawerListItem ${location.pathname==='/newFundraiser'&&"dashboardDrawerListItemActive"}`}>New Fundraiser</a>
+            <a href='/dashboard/newFundraiser' className={`navigatingLink dashboardDrawerListItem ${location.pathname==='/newFundraiser'&&"dashboardDrawerListItemActive"}`}>New Fundraiser</a>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)} className="dashboardDrawerListItemBox">
-            <a href='/myFundraisers' className={`navigatingLink dashboardDrawerListItem ${location.pathname==='/myFundraisers'&&"dashboardDrawerListItemActive"}`}>My Fundraisers</a>
+            <a href='/dashboard/myFundraisers' className={`navigatingLink dashboardDrawerListItem ${location.pathname==='/myFundraisers'&&"dashboardDrawerListItemActive"}`}>My Fundraisers</a>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)} className="dashboardDrawerListItemBox">
             <ListItemText>
