@@ -10,36 +10,32 @@ import {
 const initState = {
   userId: "",
   userEmail: "",
-  users: null,
-  userProfile: null,
+  users: [],
+  userProfile: {},
 };
 
 export const authReducer = (state = initState, action) => {
   switch (action.type) {
     case USER_SIGNIN: {
-      return Object.assign({}, state, {
-        ...action.payload,
-      });
+      if (action.payload !== undefined) return { ...state, ...action.payload };
     }
     case USER_SIGNUP: {
+      if (action.payload !== undefined) return { ...state, ...action.payload };
       return Object.assign({}, state, {
         ...action.payload,
       });
     }
     case GET_PROFILE: {
-      return Object.assign({}, state, {
-        ...action.payload,
-      });
+      if (action.payload !== undefined) return { ...state, ...action.payload };
     }
     case GET_ALL_USERS: {
-      return Object.assign({}, state, {
-        users: action.payload.users,
-      });
+      if (action.payload !== undefined) return { users: action.payload.users };
     }
     case SEND_SPENDING_NOTIFICATION: {
-      return Object.assign({}, state, {
-        notification: action.payload,
-      });
+      if (action.payload !== undefined)
+        return { ...state, notification: action.payload };
     }
+    default:
+      return state;
   }
 };

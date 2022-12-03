@@ -1,13 +1,12 @@
 import {
-  FORGOT_PASSWORD,
   USER_SIGNIN,
   USER_SIGNUP,
-  RESET_PASSWORD,
   SEND_SPENDING_NOTIFICATION,
   GET_ALL_USERS,
   GET_PROFILE,
 } from "../constants/constants";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export const userSignInStatus = (userData, navigate) => async (dispatch) => {
   toast("Please Wait for a few seconds");
@@ -57,57 +56,7 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
     });
 };
 
-export const forgotPassword = (userEmail, navigate) => async (dispatch) => {
-  toast("Please Wait for a few seconds");
-  const url = process.env.REACT_APP_SERVER + "/user/forgot-password";
-  await axios
-    .post(url, userEmail)
-    .then((res) => {
-      if (res.status === 200) {
-        toast.success("OTP has been sent to your email");
-        console.log(res);
-        dispatch({
-          type: FORGOT_PASSWORD,
-          payload: userData,
-        });
-        navigate("/dashboard");
-      } else {
-        toast.error("Please Try Again");
-        console.log(res);
-      }
-    })
-    .catch((err) => {
-      toast.error("Please try Again!");
-      console.log(err);
-    });
-};
-
-export const resetPassword = (userData, navigate) => async (dispatch) => {
-  toast("Please Wait for a few seconds");
-  const url = process.env.REACT_APP_SERVER + "/user/reset-password";
-  await axios
-    .post(url, userData)
-    .then((res) => {
-      if (res.status === 200) {
-        toast.success("Your password is reset.");
-        console.log(res);
-        dispatch({
-          type: RESET_PASSWORD,
-          payload: userData,
-        });
-        navigate("/signIn");
-      } else {
-        toast.error("Please Try Again");
-        console.log(res);
-      }
-    })
-    .catch((err) => {
-      toast.error("Please try Again!");
-      console.log(err);
-    });
-};
-
-export const getProfile = (userId) => async (dispatch) => {
+export const getProfile = (userId, navigate) => async (dispatch) => {
   toast("Please Wait for a few seconds");
   const url = process.env.REACT_APP_SERVER + "/user/getProfile";
   await axios
@@ -136,7 +85,7 @@ export const getAllUsers = () => async (dispatch) => {
   toast("Please Wait for a few seconds");
   const url = process.env.REACT_APP_SERVER + "/user/getProfile";
   await axios
-    .post(url, userId)
+    .post(url)
     .then((res) => {
       if (res.status === 200) {
         console.log(res);
@@ -144,7 +93,6 @@ export const getAllUsers = () => async (dispatch) => {
           type: GET_ALL_USERS,
           payload: res,
         });
-        navigate("/signIn");
       } else {
         toast.error("Please Try Again");
         console.log(res);
@@ -170,7 +118,6 @@ export const sendSpendNotification = (userId) => async (dispatch) => {
           type: SEND_SPENDING_NOTIFICATION,
           payload: res,
         });
-        navigate("/signIn");
       } else {
         toast.error("Please Try Again");
         console.log(res);

@@ -17,6 +17,7 @@ import { create } from "ipfs-http-client";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationNavbar } from "../index";
+import { userSignUpStatus } from "../../../redux/actions/auth";
 
 export default function SignUp() {
   const [agree, setAgree] = useState(false);
@@ -99,6 +100,7 @@ export default function SignUp() {
           likedPosts: [],
           imagesPosted: [],
         };
+        dispatch(userSignUpStatus(data, navigate));
       } catch (error) {
         toast.error("Something went wrong !");
       }
