@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Dashboard,Signin,Signup,PageNotFound,Landing} from './globals';
+import { Dashboard,Signin,Signup,PageNotFound,Landing,Faq} from './globals';
 import './App.scss';
 import BlockchainProvider from './blockchain';
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/signin' element={<Signin/>}/> 
         <Route path='*' element={<PageNotFound/>}/> 
- 
+        <Route path='/faq' element={<Faq/>}/>
       </Routes> 
     </Router>
     </>

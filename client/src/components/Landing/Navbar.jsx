@@ -33,7 +33,7 @@ function Navbar() {
                         Use cases
                       </Button>
                     </a> */}
-                    <a className="navigatingLink" href="/">
+                    <a className="navigatingLink" href="/faq">
                       <Button size="small" className="landingNavbarFAQs">
                        FAQs
                       </Button>

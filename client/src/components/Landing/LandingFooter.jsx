@@ -22,7 +22,7 @@ function LandingFooter() {
               className="landingFooterImage"
             />
             <Typography variant="body1" className="landingFooterInfo">
-              An authentic and secured <br />
+              An authentic and secured <br /> medical
               crowdfunding platform
             </Typography>
           </div>
@@ -72,9 +72,9 @@ function LandingFooter() {
                 Home
               </Typography>
             </a>
-            <a href="/" className="navigatingLink">
+            <a href="/faq" className="navigatingLink">
               <Typography variant="body1" className="landingFooterPages">
-                Blogs
+                FAQ
               </Typography>
             </a>
             <a href="/" className="navigatingLink">
@@ -82,11 +82,11 @@ function LandingFooter() {
                 Terms of use
               </Typography>
             </a>
-            <a href="/" className="navigatingLink">
+            {/* <a href="/" className="navigatingLink">
               <Typography variant="body1" className="landingFooterPages">
                 Who are we?
               </Typography>
-            </a>
+            </a> */}
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4} textAlign="center">
@@ -100,7 +100,7 @@ function LandingFooter() {
                 sx={{ color: "white" }}
               />
               <Typography variant="body1" className="landingFooterPages contactUs">
-                cryptobute@gmail.com
+                medifund@gmail.com
               </Typography>
             </div>
             <div className="landingFooterMail">
