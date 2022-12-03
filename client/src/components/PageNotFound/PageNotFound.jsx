@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function PageNotFound() {
-  return (
-    <div>PageNotFound</div>
-  )
+  return <h1>PageNotFound</h1>;
 }
 
-export default PageNotFound
+export default PageNotFound;
