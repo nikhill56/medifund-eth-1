@@ -35,7 +35,7 @@ export const whyCryptoBute = [
       <>
         Provides efficient and seamless{" "}
         <span className="whyCryptoButeHeadingSpan">transactions </span>between
-        <br/>the users with no hassles
+        the users with no hassles
       </>
     ),
   },
