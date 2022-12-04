@@ -22,7 +22,7 @@ const web3_utils = require('web3-utils');
 function ViewFundraiser() {
     const allFundraisers = useSelector(state => state.blockchain.allFundraisers)
     const userId = sessionStorage.getItem("userId")
-
+    
     const { id, mid } = useParams()
     const currentFundraiser = allFundraisers && allFundraisers.filter(x => x._id === mid)
     const dispatch = useDispatch()
@@ -51,7 +51,7 @@ function ViewFundraiser() {
     const {address} = useAccount()
 
     const handleDonateFund = (cid) => {
-        dispatch(donateFundraiser(address, amount, cbuteContract, userId, mid, cid))
+        dispatch(donateFundraiser(address, amount, cbuteContract, "637e67da6edd201f86863389", mid, cid))
     }
 
     const convertWei = () => {

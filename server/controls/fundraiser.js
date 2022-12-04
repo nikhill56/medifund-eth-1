@@ -59,6 +59,7 @@ exports.getFundraisers=async(req,res)=>{
 exports.updateFundraiser=async(req,res)=>{
   try{
     const {userId,mid,cid,walletAddress,amount,thash}=req.body
+    console.log(req.body)
     const data={
       userId:userId,
       walletAddress:walletAddress,

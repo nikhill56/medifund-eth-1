@@ -4,7 +4,6 @@ require("dotenv").config();
 
 exports.signUpWithEmail = async (req, res) => {
     try {
-     
       CbuteUser.findOne({ email: req.body.email }).then((user) => {
         if (user) {
           return res.status(400).json({
@@ -23,7 +22,8 @@ exports.signUpWithEmail = async (req, res) => {
         message: "Success",
       });
     } catch (e) {
-    
+      console.log(e);
+      res.status(400).json({"catch":"something"})
     }
   };
 

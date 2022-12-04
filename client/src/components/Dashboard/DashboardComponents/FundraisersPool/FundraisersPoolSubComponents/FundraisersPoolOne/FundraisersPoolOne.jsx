@@ -53,7 +53,7 @@ function FundraisersPoolOne() {
                       </div>
                     </div>
                     <div className="fundraisersPoolOneInfoTipBtnBox">
-                      <a href={`/viewFundraiser/${x.contractAddress}/${x._id}`} className='navigatingLink'> <Button component="span" size='small' className='fundraisersPoolOneInfoTipBtn' >View</Button></a>
+                      <a href={`/dashboard/viewFundraiser/${x.contractAddress}/${x._id}`} className='navigatingLink'> <Button component="span" size='small' className='fundraisersPoolOneInfoTipBtn' >View</Button></a>
                     </div>
 
 

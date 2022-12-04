@@ -8,6 +8,7 @@ import { useAccount } from 'wagmi'
 import { createNewFundraiser } from '../../../../../redux/actions/blockchain';
 import {useNavigate} from 'react-router-dom'
 import { useEffect } from 'react';
+
 const MAX_COUNT = 5;
 function NewFundraiserForm() {
     const userId=sessionStorage.getItem("userId")
@@ -40,6 +41,7 @@ function NewFundraiserForm() {
             [e.target.name]: e.target.value
         }))
     }
+    console.log(address,"")
     const handleSignUpSubmit = async(e) => {
         e.preventDefault()
         if (user.totalFund === undefined || user.fundTitle === "" || user.fundDescription === "" || fundraiserThumbnail === "" || uploadedFiles.length === 0) {
@@ -48,6 +50,7 @@ function NewFundraiserForm() {
               })
         }
         else{
+            
             try{
                 let upFiles=[]
                 const fundThumbnail=await client.add(fundraiserThumbnail)
