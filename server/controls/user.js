@@ -34,8 +34,15 @@ exports.signInWithEmail = async (req, res) => {
 
     const isEmailPresent = await CbuteUser.findOne({ email: emailAddress });
 
-    if (!isEmailPresent) {
-      return res.status(400).json({ message: "No such email address found." });
+  exports.getProfile = async (req, res) => {
+    const { userId } = req.body;
+   console.log(userId)
+    try {
+      await CbuteUser.findById({ _id: userId }).then((resp) =>
+        res.status(200).json({ user: resp })
+      );
+    } catch (e) {
+  
     }
 
     if (!bcrypt.compareSync(password, isEmailPresent.password)) {

@@ -68,7 +68,7 @@ function MyFundraisers() {
                                                         </div>
                                                     </div>
                                                     <div className="fundraisersPoolOneInfoTipBtnBox">
-                                                        <a href={`/myFundraisers/${mf.contractAddress}/${mf._id}`} className='navigatingLink'> <Button component="span" size='small' className='fundraisersPoolOneInfoTipBtn' >View</Button></a>
+                                                        <a href={`/dashboard/myFundraisers/${mf.contractAddress}/${mf._id}`} className='navigatingLink'> <Button component="span" size='small' className='fundraisersPoolOneInfoTipBtn' >View</Button></a>
                                                     </div>
 
 

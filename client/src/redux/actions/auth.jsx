@@ -67,31 +67,37 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
     });
 };
 
-export const getProfile = (userId) => async (dispatch) => {
+export const getProfile = (userId, navigate) => async (dispatch) => {
+
+  
   const url = process.env.REACT_APP_SERVER + "/user/getProfile";
   const data = { userId };
   await axios
-    .post(url, data)
-    .then((res) => {
+    .get("http://localhost:7000/user/getProfile", data)
+    .then((res) => {console.log(res)
       if (res.status === 200) {
         console.log(res);
         dispatch({
           type: GET_PROFILE,
           payload: res,
         });
+       
       } else {
+        toast.error("Please Try Again");
         console.log(res);
       }
     })
     .catch((err) => {
+      toast.error("Please try Again!");
       console.log(err);
     });
 };
 
 export const getAllUsers = () => async (dispatch) => {
+  toast("Please Wait for a few seconds");
   const url = process.env.REACT_APP_SERVER + "/user/getAllUsers";
   await axios
-    .post(url)
+    .get(url)
     .then((res) => {
       if (res.status === 200) {
         console.log(res);
@@ -100,10 +106,12 @@ export const getAllUsers = () => async (dispatch) => {
           payload: res,
         });
       } else {
+        toast.error("Please Try Again");
         console.log(res);
       }
     })
     .catch((err) => {
+      toast.error("Please try Again!");
       console.log(err);
     });
 };
@@ -133,7 +141,7 @@ export const getAllUsers = () => async (dispatch) => {
 // };
 
 export const userSignOut = (navigate) => async (dispatch) => {
-  toast.success("Successfully signed out !");
-  sessionStorage.setItem("userId", "");
-  navigate("/signin");
-};
+    toast.success("Successfully signed out !");
+    sessionStorage.setItem("userId", "");
+    navigate("/signin");
+  };
