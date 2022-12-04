@@ -64,7 +64,7 @@ function MyFundraisers() {
                                                         <img src={mf.userImg} alt="author-img" className="fundraisersPoolOneCreatorImg" />
                                                         <div className="latestImageCreatorInfo">
                                                             <Typography variant='body1' className='fundraisersPoolOneCreatorInfoCreator'>Fundraiser</Typography>
-                                                            <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{mf.userName}</Typography>
+                                                            <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{mf.userName.slice(0,15)}..</Typography>
                                                         </div>
                                                     </div>
                                                     <div className="fundraisersPoolOneInfoTipBtnBox">
