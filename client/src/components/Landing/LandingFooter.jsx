@@ -103,14 +103,6 @@ function LandingFooter() {
                 medifund@gmail.com
               </Typography>
             </div>
-            <div className="landingFooterMail">
-              <LocationOnIcon className="landingFooterLocationIcon" />
-              <Typography variant="body1" className="landingFooterPages contactUs">
-                Lalit Ashok,Kumarakrupa Rd <br /> High Grounds, Seshadripuram
-                <br />
-                Bengaluru, Karnataka 560001
-              </Typography>
-            </div>
           </div>
         </Grid>
         <Grid item xs={12} textAlign="center">
