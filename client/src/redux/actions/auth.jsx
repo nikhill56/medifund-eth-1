@@ -51,6 +51,7 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
       if (res.status === 200) {
         setTimeout(()=>{
           toast.success("Successfully created Account");
+          navigate("/dashboard");
         },1500)
         
         sessionStorage.setItem("userId", res.data.user._id);
@@ -58,7 +59,7 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
           type: USER_SIGNUP,
           payload: userData,
         });
-        navigate("/dashboard");
+       
       } else {
         toast.error("Please try Again!");
         console.log(res);

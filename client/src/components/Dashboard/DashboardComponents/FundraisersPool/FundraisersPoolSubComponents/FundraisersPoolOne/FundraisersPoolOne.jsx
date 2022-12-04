@@ -20,7 +20,7 @@ function FundraisersPoolOne() {
 
       {allFundraisers&&allFundraisers.length!==0 ? (
         <div className='fundraisersPoolOneCardParentBox'>
-          {allFundraisers.sort((a, b) => b._id - a._id).filter(x => x.totalFund <= 100).map((x, index) => (
+          {allFundraisers.sort((a, b) => b._id - a._id).filter(x => x.totalFund <= 10).map((x, index) => (
 
             <div key={index} component={Card} className="fundraisersPoolOneCardParent">
               <CardActionArea className='fundraisersPoolOneCard'>

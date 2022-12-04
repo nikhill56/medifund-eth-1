@@ -20,7 +20,7 @@ function FundraisersPoolTwo() {
 
       {allFundraisers&&allFundraisers.length!==0 ? (
         <div className='fundraisersPoolOneCardParentBox'>
-          {allFundraisers.sort((a, b) => b._id - a._id).filter(x => x.totalFund <= 100).map((x, index) => (
+          {allFundraisers.sort((a, b) => b._id - a._id).filter(x => x.totalFund>10&&x.totalFund<50).map((x, index) => (
 
             <div key={index} component={Card} className="fundraisersPoolOneCardParent">
               <CardActionArea className='fundraisersPoolOneCard'>
@@ -48,8 +48,8 @@ function FundraisersPoolTwo() {
                     <div className="fundraisersPoolOneInfoImgBox">
                       <img src={x.userImg} alt="author-img" className="fundraisersPoolOneCreatorImg" />
                       <div className="latestImageCreatorInfo">
-                        <Typography variant='body1' className='fundraisersPoolOneCreatorInfoCreator'>Fundraiser</Typography>
-                        <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{x.userName}</Typography>
+                      <Typography variant='body1' className='fundraisersPoolOneCreatorInfoCreator'>Fundraiser</Typography>
+                        <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{x.userName.slice(0,13)}...</Typography>
                       </div>
                     </div>
                     <div className="fundraisersPoolOneInfoTipBtnBox">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../../../../styles/DashboardStyles/DashboardNavbar.scss'
 import { Grid, AppBar, Button, Toolbar, Avatar, Chip, useTheme, useMediaQuery, Badge } from '@mui/material'
 import logo from '../../../../assets/logos/medifundsmall.png'
@@ -7,26 +7,28 @@ import { useWeb3Modal } from '@web3modal/react'
 import {useAccount,useDisconnect} from 'wagmi'
  
 import {useNavigate} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import {userSignOut} from '../../../../redux/actions/auth'
+import {getProfile, userSignOut} from '../../../../redux/actions/auth'
 // import profileDefault from '../../../../assets/landing/tipogram-logo-2.png'
 
 
 import DashboardDrawer from './DashboardDrawer'
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { getFundraisers } from '../../../../redux/actions/blockchain'
+
 function DashboardNavbar() {
   const location = useLocation()
   const dispatch = useDispatch();
   const navigate=useNavigate()
-
+  const userId = sessionStorage.getItem("userId")
   const handleUserSignOut=()=>{
       dispatch(userSignOut(navigate));
   }
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { open } = useWeb3Modal()
-  const { isConnected } = useAccount()
+  const { isConnected,address } = useAccount()
   const {disconnect} = useDisconnect()
   const connectHandler = async () => {
     if (isConnected) {
@@ -36,7 +38,15 @@ function DashboardNavbar() {
       open()
     }
   }
- 
+  useEffect(() => {
+
+    dispatch(getFundraisers())
+    dispatch(getProfile(userId, navigate))
+
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
+
+  const allFundraisers = useSelector(state => state.blockchain.allFundraisers)
+  const userData = useSelector(state => state.auth.userProfile)
 
   return (
     <div className="">
@@ -68,9 +78,9 @@ function DashboardNavbar() {
                       <a href='/dashboard/myFundraisers' className='navigatingLink'><Button size="large" className={`dashboardNavbarItems ${location.pathname === '/myFundraisers' && "dashboardNavbarItemsActive"}`}>
                         My Fundraisers
                       </Button></a>
-                      <a className='navigatingLink' href='/'><Chip
-                        avatar={<Avatar alt="Metamask" src={merlin} />}
-                        label="Merlin"
+                      <a className='navigatingLink' href=''><Chip
+                        avatar={<Avatar alt="Metamask" src={userData&&userData.data.user.profileImg} />}
+                        label={`${address.slice(0,5)}...`}
                         variant="outlined"
                         className="dashboardNavbarChip"
                       /></a>
