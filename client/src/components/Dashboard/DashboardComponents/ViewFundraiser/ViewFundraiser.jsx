@@ -138,12 +138,13 @@ function ViewFundraiser() {
 
                                         </div>
                                         </Grid>
-                                        <Grid item xs={12} lg={4} md={5} sm={6} xl={3}>
+                                        <Grid item xs={12} lg={6} md={6} sm={6} xl={6}>
                                             <div className="">
                                                 <Typography variant='h6' className='viewFundraiserMedicalProofsHeader'>Fund raised by :</Typography>
                                                 <div className="viewFundraiserFundRaisedBox">
                                                     <img className='viewFundraiserFundRaisedImg' src={cf.userImg} alt="" />
-                                                    <Typography variant='h6' className='viewFundraiserFundRaisedName'>{cf.userName}</Typography>
+
+                                                    <Typography variant='h6' className='viewFundraiserFundRaisedName'>{cf.userName.slice(0,20)}...</Typography>
                                                 </div>
                                             </div>
                                         </Grid>

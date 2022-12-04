@@ -49,7 +49,7 @@ function FundraisersPoolOne() {
                       <img src={x.userImg} alt="author-img" className="fundraisersPoolOneCreatorImg" />
                       <div className="latestImageCreatorInfo">
                         <Typography variant='body1' className='fundraisersPoolOneCreatorInfoCreator'>Fundraiser</Typography>
-                        <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{x.userName}</Typography>
+                        <Typography variant='h6' className='fundraisersPoolOneCreatorInfoCreatorName'>{x.userName.slice(0,13)}...</Typography>
                       </div>
                     </div>
                     <div className="fundraisersPoolOneInfoTipBtnBox">

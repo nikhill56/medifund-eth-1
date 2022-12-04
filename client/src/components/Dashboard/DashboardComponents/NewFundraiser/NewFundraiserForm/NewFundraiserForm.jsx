@@ -5,9 +5,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { create } from 'ipfs-http-client'
 import { useSelector,useDispatch } from 'react-redux'
 import { useAccount } from 'wagmi'
-import { createNewFundraiser } from '../../../../../redux/actions/blockchain';
+import { createNewFundraiser, getFundraisers } from '../../../../../redux/actions/blockchain';
 import {useNavigate} from 'react-router-dom'
 import { useEffect } from 'react';
+import { getProfile } from '../../../../../redux/actions/auth';
+
 
 const MAX_COUNT = 5;
 function NewFundraiserForm() {
@@ -19,6 +21,15 @@ function NewFundraiserForm() {
         fundTitle: "",
         fundDescription: "",
     })
+    useEffect(() => {
+
+        dispatch(getFundraisers())
+        dispatch(getProfile(userId, navigate))
+    
+      }, [])// eslint-disable-line react-hooks/exhaustive-deps
+    
+      const allFundraisers = useSelector(state => state.blockchain.allFundraisers)
+      const userData = useSelector(state => state.auth.userProfile)
     const cbuteFactoryContract=useSelector(state=>state.blockchain.crytobuteFactoryContract)
     const {address}=useAccount()
     const [fundraiserThumbnail, setFundraiserThumbnail] = useState("")
@@ -41,7 +52,7 @@ function NewFundraiserForm() {
             [e.target.name]: e.target.value
         }))
     }
-    console.log(address,"")
+
     const handleSignUpSubmit = async(e) => {
         e.preventDefault()
         if (user.totalFund === undefined || user.fundTitle === "" || user.fundDescription === "" || fundraiserThumbnail === "" || uploadedFiles.length === 0) {
@@ -70,15 +81,15 @@ function NewFundraiserForm() {
                     
                     let newContractAdd=res['events']['NewDeployedAddress']['returnValues'].deployedAddress
                     let data={
-                        userId:"637e67da6edd201f86863389",
+                        userId:userId,
                         contractAddress:newContractAdd,
                         fundInfo:user.fundTitle,
                         fundDescription:user.fundDescription,
                         fundImage:fundThumbnailUrl,
                         fundProofs:upFiles,
                         totalFund:user.totalFund,
-                        userImg:"x",
-                        userName:"x",
+                        userImg:userData.data.user.profileImg,
+                        userName:address,
                         contributors:[],
                         spendRequests:[]
                     }

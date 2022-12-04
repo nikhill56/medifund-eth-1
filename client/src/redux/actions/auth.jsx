@@ -49,7 +49,10 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
     .post(url, userData)
     .then((res) => {
       if (res.status === 200) {
-        toast.success("Successfully created Account");
+        setTimeout(()=>{
+          toast.success("Successfully created Account");
+        },1500)
+        
         sessionStorage.setItem("userId", res.data.user._id);
         dispatch({
           type: USER_SIGNUP,
@@ -73,7 +76,7 @@ export const getProfile = (userId, navigate) => async (dispatch) => {
   const url = process.env.REACT_APP_SERVER + "/user/getProfile";
   const data = { userId };
   await axios
-    .get("http://localhost:7000/user/getProfile", data)
+    .post(url, data)
     .then((res) => {console.log(res)
       if (res.status === 200) {
         console.log(res);

@@ -34,7 +34,7 @@ export const createNewFundraiser = (response, navigate) => async (dispatch) => {
             payload: res.data.fundraiser,
           });
           setTimeout(() => {
-            navigate("/");
+            navigate("/dashboard");
           }, 1500);
         })
         .catch((e) => toast.error("Something went wrong !"));
