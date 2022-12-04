@@ -3,6 +3,7 @@ import meta from "../../assets/other/meta.png";
 // import node from "../../assets/other/node.png";
 import wallet from "../../assets/other/wallet.png";
 import push from "../../assets/other/push.jpg"
+import infura from "../../assets/other/image6.png"
 import "../../styles/LandingStyles/IntegratedTechnologies.scss";
 export const integratedTechnologies = [
   {
@@ -12,7 +13,7 @@ export const integratedTechnologies = [
   },
   {
     id: 2,
-    url: push,
+    url: infura,
     classname:"nodeImg"
   },
   {
