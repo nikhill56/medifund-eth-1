@@ -56,7 +56,7 @@ exports.signUpWithEmail = async (req, res) => {
 
   exports.getProfile = async (req, res) => {
     const { userId } = req.body;
-   
+   console.log(userId)
     try {
       await CbuteUser.findById({ _id: userId }).then((resp) =>
         res.status(200).json({ user: resp })
