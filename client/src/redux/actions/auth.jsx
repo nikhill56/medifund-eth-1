@@ -68,18 +68,20 @@ export const userSignUpStatus = (userData, navigate) => async (dispatch) => {
 };
 
 export const getProfile = (userId, navigate) => async (dispatch) => {
-  toast("Please Wait for a few seconds");
+
+  
   const url = process.env.REACT_APP_SERVER + "/user/getProfile";
+  const data = { userId };
   await axios
-    .post(url, userId)
-    .then((res) => {
+    .get("http://localhost:7000/user/getProfile", data)
+    .then((res) => {console.log(res)
       if (res.status === 200) {
         console.log(res);
         dispatch({
           type: GET_PROFILE,
           payload: res,
         });
-        navigate("/signin");
+       
       } else {
         toast.error("Please Try Again");
         console.log(res);
@@ -93,9 +95,9 @@ export const getProfile = (userId, navigate) => async (dispatch) => {
 
 export const getAllUsers = () => async (dispatch) => {
   toast("Please Wait for a few seconds");
-  const url = process.env.REACT_APP_SERVER + "/user/getProfile";
+  const url = process.env.REACT_APP_SERVER + "/user/getAllUsers";
   await axios
-    .post(url)
+    .get(url)
     .then((res) => {
       if (res.status === 200) {
         console.log(res);

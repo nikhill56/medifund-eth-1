@@ -11,7 +11,7 @@ const {
 
 router.post("/signUp", signUpWithEmail);
 router.post("/signIn", signInWithEmail);
-router.post("/getProfile", getProfile);
+router.get("/getProfile", getProfile);
 router.get("/getAllUsers", getAllUsers);
 router.put("/sendSpendNotifications/:userId", sendSpendNotifications);
 

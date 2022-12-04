@@ -10,8 +10,8 @@ import {
 const initState = {
   userId: "",
   userEmail: "",
-  users: [],
-  userProfile: {},
+  users: null,
+  userProfile: null,
 };
 
 export const authReducer = (state = initState, action) => {
@@ -27,14 +27,17 @@ export const authReducer = (state = initState, action) => {
       });
       break;
     }
-    case GET_PROFILE: {
-      if (action.payload !== undefined) return { ...state, ...action.payload };
-      break;
-    }
+    case GET_PROFILE:{
+      return Object.assign({},state,{
+        userProfile:action.payload,
+    
+        })
+  }
     case GET_ALL_USERS: {
-      if (action.payload !== undefined)
-        return { ...state, users: action.payload.users };
-      break;
+      return Object.assign({},state,{
+        users:action.payload,
+    
+        })
     }
     case SEND_SPENDING_NOTIFICATION: {
       if (action.payload !== undefined)
